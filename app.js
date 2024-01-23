@@ -5,7 +5,12 @@ app.set("view engine", "ejs");
 app.listen(3000);
 
 app.get("/", (req, res)=>{
-    res.render("index");
+    const items = [
+        {name: "item1", price: 100},
+        {name: "item2", price: 200},
+        {name: "item3", price: 300}
+    ]
+    res.render("index", {items});
 })
 
 app.get("/add_item", (req, res)=>{

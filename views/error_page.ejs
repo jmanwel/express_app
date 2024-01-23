@@ -1,32 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
-<body>
-    <nav>
-        <div class="nav-wrapper container">
-          <a href="/" class="brand-logo">CRUD</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="./add_item">Add a item</a></li>
-            <li><a href="#">Components</a></li>
-            <li><a href="#">JavaScript</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="container center-align">
-          <h1>Oops!!</h1>
-          <h2>404 - PAGE NOT FOUND</h2>
-          <i class="large material-icons prefix">sentiment_very_dissatisfied</i>
-        
-      </div>
-</body>
+  <%- include("../partials/head.ejs") %>
+  <body>
+    <%- include("../partials/navbar.ejs") %>
+    <div class="container center-align">
+      <h1>Oops!!</h1>
+      <h2>404 - PAGE NOT FOUND</h2>
+      <i class="large material-icons prefix">sentiment_very_dissatisfied</i>
+    </div>
+  </body>
 </html>
