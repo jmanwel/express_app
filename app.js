@@ -1,8 +1,16 @@
 const express = require("express");
 
 const app = express();
+const mongoose = require("mongoose");
 app.set("view engine", "ejs");
-app.listen(3000);
+const mongodb = "CONNECTION STRING HERE";
+
+mongoose.connect(mongodb, {useNewUrlParser: true})
+    .then(()=> {
+        console.log("Connected!");
+        app.listen(3000);
+    })
+    .catch((err)=> console.log(err))
 
 app.get("/", (req, res)=>{
     const items = [
