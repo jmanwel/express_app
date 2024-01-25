@@ -12,15 +12,54 @@
                     <a href="/items/<%= item.id%>" class="secondary-content">
                       <%=item.name%> <%=item.price%>
                     </a>
-                      <i class="material-icons">edit</i>
-                      <i class="material-icons">delete</i>
+                      <i class="material-icons modal-trigger" href="#modal1" data-id="<%=item._id%>"><a>edit</a></i>
+                      <i class="material-icons" id="delete_container" data-id="<%=item._id%>"><a>delete</a></i>
                   </div>
                 </li>
           <%  }); %>
           <% }else{%>
-            <li class="collection-item">There is no items</li>
+            <li class="collection-item">There is no items to show</li>
           <% } %>          
           </ul>
       </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Edit form</h4>
+            <form id="edit_form">
+              <input type="text" name="name" placeholder="item name">
+              <input type="number" name="price" placeholder="item price">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn">Update</button>
+          </div>
+        </div>
 </body>
+<script>
+
+    var updateId;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+    });
+
+    delete_container.onclick = function(e){
+      e.preventDefault();
+      // const id = delete_btn.dataset.id;
+      const id = e.target.getAttribute("data-id");
+      console.log("Delete item", id);
+      const endpoint = `/items/${id}`;
+      fetch(endpoint,{
+        method: "DELETE"
+      }).then((r)=>r.json())
+        .then((data)=>{
+          console.log(data);
+          window.location.href = data.redirect
+        })
+        .catch((e)=>{console.log(e)})
+    }
+
+</script>
 </html>

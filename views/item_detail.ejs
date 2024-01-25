@@ -21,7 +21,11 @@
       const endpoint = `/items/${id}`;
       fetch(endpoint,{
         method: "DELETE"
-      }).then(()=>{})
+      }).then((r)=>r.json())
+        .then((data)=>{
+          console.log(data);
+          window.location.href = data.redirect
+        })
         .catch((e)=>{console.log(e)})
     }
   </script>

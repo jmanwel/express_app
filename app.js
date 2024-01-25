@@ -37,7 +37,6 @@ app.get("/add_item", (req, res)=>{
 })
 
 app.post("/items", (req, res)=>{
-    console.log(req.body);
     const item = Item(req.body);
     item.save()
         .then(()=>{
@@ -47,7 +46,6 @@ app.post("/items", (req, res)=>{
 })
 
 app.get("/items/:id", (req, res)=>{
-    console.log(req.params);
     const id = req.params.id;
     Item.findById(id)
         .then((r)=>{
@@ -57,12 +55,19 @@ app.get("/items/:id", (req, res)=>{
 })
 
 app.delete("/items/:id", (req, res)=>{
-    console.log(req.params);
     const id = req.params.id;
     Item.findByIdAndDelete(id)
         .then((r)=>{
             console.log("item deleted");
-            res.redirect("/")
+            res.json({redirect:"/get_items"})
+        })
+})
+
+app.put("/items/:id", (req, res)=>{
+    const id = req.params.id;
+    Item.findByIdAndUpdate(id, req.body)
+        .then((r)=>{
+            res.json({msg:"item updated!"})
         })
 })
 
