@@ -65,6 +65,7 @@ app.delete("/items/:id", (req, res)=>{
 
 app.put("/items/:id", (req, res)=>{
     const id = req.params.id;
+    console.log("ID TO UPDATE: ", id)
     Item.findByIdAndUpdate(id, req.body)
         .then((r)=>{
             res.json({msg:"item updated!"})
