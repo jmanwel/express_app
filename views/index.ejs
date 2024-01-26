@@ -26,7 +26,7 @@
       </div>
         <!-- Modal Structure -->
         <div id="edit_item_modal" class="modal">
-          <div id="edit_form" class="modal-content">
+          <div class="modal-content">
             <h4>Edit form</h4>
             <form id="edit_form">
               <input type="text" name="name" placeholder="item name">
@@ -36,8 +36,7 @@
               </div>
               </div>
             </form>
-          </div>
-          
+          </div>      
 </body>
 <script>
 
@@ -49,6 +48,7 @@
     });
 
     edit_form.onsubmit = async function (e) {
+        console.log("submited")
         e.preventDefault();
         let data = new FormData(edit_form);
         console.log(updateId)
@@ -59,6 +59,7 @@
                 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
             })
         })
+        console.log("waiting results")
         let result = await response.json()
         edit_form.reset();
         window.location.reload();
@@ -66,14 +67,11 @@
     }
 
     itemContainer.onclick = function (e) {
-        // console.log('e.target.textContent', e.target.textContent)
         if (e.target.textContent === 'edit') {
             updateId = e.target.getAttribute('data-id');
-            console.log(updateId)
 
         }
         if (e.target.textContent === 'delete') {
-            // const id = deleteBtn.dataset.id
             const id = e.target.getAttribute('data-id');
             console.log(id)
             const endpoint = `/items/${id}`;
