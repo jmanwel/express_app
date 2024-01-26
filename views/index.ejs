@@ -37,14 +37,13 @@
               </div>
             </form>
           </div>      
-</body>
-<script>
-
+  </body>
+  <script>
     var updateId;
 
     document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems);
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
     });
 
     edit_form.onsubmit = async function (e) {
@@ -85,6 +84,5 @@
                 catch(err => console.log(err))
         }
     }
-
-</script>
+  </script>
 </html>
