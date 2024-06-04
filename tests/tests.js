@@ -1,3 +1,3 @@
-import assert from 'assert';
+var assert = require('assert');
 assert(1==1);
   
