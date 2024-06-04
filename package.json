@@ -13,7 +13,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "mocha ./src/tests/*.js"
+    "test": "mocha ./tests/*.js"
   },
   "author": "",
   "license": "ISC",
