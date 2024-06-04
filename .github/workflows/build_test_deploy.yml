@@ -43,6 +43,11 @@ jobs:
 
     steps:
 
+      - name: checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: create env file
         run: |
           touch .env
@@ -55,11 +60,6 @@ jobs:
       - name: Debug .env file content
         run: cat .env
         shell: bash
-
-      - name: checkout repo
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: use node.js
         uses: actions/setup-node@v3
