@@ -42,6 +42,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: create env file
+        run: |
+          touch .env
+          echo MONGO_CLUSTER=${{ secrets.MONGO_CLUSTER }} >> .env
+          echo MONGO_DATABASE=${{ secrets.MONGO_DATABASE }} >> .env
+          echo MONGO_PASS=${{ secrets.MONGO_PASS }} >> .env
+          echo MONGO_USER=${{ secrets.MONGO_USER }} >> .env
+
       - name: checkout repo
         uses: actions/checkout@v3
         with:
