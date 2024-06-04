@@ -48,18 +48,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: create env file
-        run: |
-          touch .env
-          echo MONGO_CLUSTER=${{ secrets.MONGO_CLUSTER }} >> .env
-          echo MONGO_DATABASE=${{ secrets.MONGO_DATABASE }} >> .env
-          echo MONGO_PASS=${{ secrets.MONGO_PASS }} >> .env
-          echo MONGO_USER=${{ secrets.MONGO_USER }} >> .env
-        shell: bash
-
-      - name: Debug .env file content
-        run: cat .env
-        shell: bash
+      - name: create env vars
+        env:
+          MONGO_CLUSTER: ${{ secrets.MONGO_CLUSTER }}
+          MONGO_DATABASE: ${{ secrets.MONGO_DATABASE }}
+          MONGO_PASS: ${{ secrets.MONGO_PASS }}
+          MONGO_USER: ${{ secrets.MONGO_USER }}
 
       - name: use node.js
         uses: actions/setup-node@v3
