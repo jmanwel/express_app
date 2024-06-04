@@ -59,13 +59,14 @@ jobs:
           static_site_generator: next
 
       - run: npm install
+      - run: npm i cors mongoose express nodemon dotenv mocha chai
       - run: node app.js
         env:
           MONGO_CLUSTER: ${{ secrets.MONGO_CLUSTER }}
           MONGO_DATABASE: ${{ secrets.MONGO_DATABASE }}
           MONGO_PASS: ${{ secrets.MONGO_PASS }}
           MONGO_USER: ${{ secrets.MONGO_USER }}
-          
+
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v1
         with: 
