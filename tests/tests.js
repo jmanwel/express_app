@@ -1,5 +1,7 @@
-import assert from 'assert';
-import { greet } from "../utils.js";
+const assert = require("assert");
+const greet = require("../utils.js");
+// import assert from 'assert';
+// import { greet } from "../utils.js";
    
 it('should return -1 when the value is not present', function () {
   assert.equal([1, 2, 3].indexOf(4), -1);
