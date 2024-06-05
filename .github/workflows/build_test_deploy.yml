@@ -59,7 +59,7 @@ jobs:
           static_site_generator: next
 
       - run: npm install
-      - run: node app.js
+      - run: npm start npm & npx wait-on http://127.0.0.1:3000
         env:
           MONGO_CLUSTER: ${{ secrets.MONGO_CLUSTER }}
           MONGO_DATABASE: ${{ secrets.MONGO_DATABASE }}
