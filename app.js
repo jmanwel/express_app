@@ -72,6 +72,11 @@ app.put("/items/:id", (req, res)=>{
         })
 })
 
+app.get("/test", (req, res) => {
+    console.log("Test endpoint");
+    res.status(200).send("Hello world");
+  });
+  
 app.use((req, res)=>{
     res.render("error_page");
 })
