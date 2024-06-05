@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      - run: node app.js
+      # - run: node app.js
   
   test: 
     needs: build
@@ -59,7 +59,6 @@ jobs:
           static_site_generator: next
 
       - run: npm install
-      - run: npm i cors mongoose express nodemon dotenv mocha chai
       - run: node app.js
         env:
           MONGO_CLUSTER: ${{ secrets.MONGO_CLUSTER }}
