@@ -60,10 +60,10 @@ jobs:
         with:
           node-version: '18.x'
       
-      - name: configure github pages
-        uses: actions/configure-pages@v3
-        with:
-          static_site_generator: next
+      # - name: configure github pages
+      #   uses: actions/configure-pages@v3
+      #   with:
+      #     static_site_generator: next
 
       - run: npm install
       - run: npm start npm & npx wait-on http://127.0.0.1:3000
@@ -80,4 +80,7 @@ jobs:
 
       - name: deploy
         id: deployment
-        uses: actions/deploy-pages@v1
+        #uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # The folder the action should deploy.

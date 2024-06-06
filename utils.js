@@ -1,4 +1,4 @@
-export function greet(name) {
+export const greet = (name) => {
       return `Hello, ${name}!`;
-  }
-  
+}
+
